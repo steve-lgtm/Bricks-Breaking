@@ -1,0 +1,36 @@
+bricksbreaking:
+-Bricksbreaking
+bricksbreaking.core:
+-Field
+-Tile
+-TileColor
+-TileState
+-GameState
+bricksbreaking.consoleui:
+-ConsoleUI
+
+
+Pri hre Bricks Breaking je pri generovaní herného poľa potrebné:
+
+Náhodne vygenerovať zadaný počet farieb colorCount v hernom poli.
+V cykle sa do poľa dlaždíc (field) vkladá tiles s rôznou farbou(tileColor).
+Cyklus končí, keď je herné pole vyplnené farbami.
+
+
+Po každom ťahu v hre Bricks Breaking sa kontroluje, či je hra prehratá alebo prebieha (isDead):
+
+Ak hráč vycerpa svoje zivoty tak hra sa označi ako prehratá, vypise sa skore a konci.
+Ak hra nebola prehratá, pokračuje(prebieha) ďalším ťahom hráča.
+
+
+Po každom tahu sa taktiez kontroluje ci je field prázdne (isClear):
+
+Ak je field prazdne a vsetky tiles su breaked tak vygeneruje nove field pomocou funkcie generate
+ 
+
+Ťah hráča spočíva vo výbere tile:
+
+Hrac  musi vybrat Tile, ktora susedí s rovnakymi farbami a musia byt minimalne 2, ak hrac vyberie tile ktora nema susedne farby odoberie sa mu život(increasehealth).
+Po ťahu sa priratava score.
+
+
