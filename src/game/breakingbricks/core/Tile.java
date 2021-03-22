@@ -1,4 +1,4 @@
-package breakingbricks.core;
+package game.breakingbricks.core;
 
 public abstract class Tile {
     private TileState state = TileState.COLORED;

@@ -1,4 +1,4 @@
-package breakingbricks.core;
+package game.breakingbricks.core;
 
 import java.util.Random;
 
@@ -22,7 +22,7 @@ public class Field {
         generate();
     }
 
-    private void generate() {
+    public void generate() {
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < columnCount; j++) {
                 if (tiles[i][j] == null) {
@@ -36,10 +36,9 @@ public class Field {
         }
     }
 
-    private void refresh() {
+    public void refresh() {
         int breakCountT = 0;
         int breakCountTR = 0;
-
         //count braked columns in tilesRefresh
         for (int j = 0; j < columnCount; j++) {
             for (int s = 0; s < rowCount; s++) {
@@ -143,7 +142,7 @@ public class Field {
         score = score + 11 * (breakCountT - breakCountTR) + 2;
     }
 
-    private void findSame(int row, int column) {
+    public void findSame(int row, int column) {
         if (row >= 0 && row < rowCount && column >= 0 && row < columnCount) {
             tiles[row][column].setState(TileState.BRAKED);
             if (row - 1 >= 0 && tiles[row - 1][column].getState() == TileState.COLORED) {
@@ -174,12 +173,15 @@ public class Field {
     }
 
     public void selectTile(int row, int column) {
-        findSame(row, column);
-        refresh();
-        if (healthCount == 0) {
-            System.out.print("GAME OVER");
-            System.out.println();
-            setState(GameState.FAILED);
+        if (tiles[row][column].getState() == TileState.COLORED) {
+            findSame(row, column);
+            refresh();
+            if (healthCount == 0) {
+                setState(GameState.FAILED);
+
+            }
+        } else {
+            System.out.println("Already broken tile, choose another !");
         }
     }
 
@@ -190,7 +192,6 @@ public class Field {
     public Tile getTile(int row, int column) {
         return tiles[row][column];
     }
-
 
     public GameState getState() {
         return state;

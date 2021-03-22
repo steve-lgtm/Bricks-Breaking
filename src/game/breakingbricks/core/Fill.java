@@ -1,4 +1,4 @@
-package breakingbricks.core;
+package game.breakingbricks.core;
 
 public class Fill extends Tile {
 }
