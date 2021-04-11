@@ -7,17 +7,49 @@
     <groupId>groupId</groupId>
     <artifactId>breakingbricks</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.4</version>
+        <relativePath/>
+    </parent>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>15</java.version>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-    </properties>
-    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+  </properties>
+
     <dependencies>
-    <dependency>
-        <groupId>org.postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <version>42.2.19</version>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.19</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

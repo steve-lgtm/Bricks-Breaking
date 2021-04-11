@@ -1,11 +1,13 @@
 package game.service;
 
 import game.entity.Comment;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CommentServiceJDBC implements CommentService {
     public static final String URL = "jdbc:postgresql://localhost/gamestudio";
     public static final String USER = "postgres";
