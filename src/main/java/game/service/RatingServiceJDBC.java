@@ -1,9 +1,11 @@
 package game.service;
 
 import game.entity.Rating;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 
+@Component
 public class RatingServiceJDBC implements RatingService {
     public static final String URL = "jdbc:postgresql://localhost/gamestudio";
     public static final String USER = "postgres";

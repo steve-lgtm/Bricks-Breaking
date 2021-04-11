@@ -7,7 +7,10 @@ import game.breakingbricks.core.TileState;
 import game.entity.Comment;
 import game.entity.Rating;
 import game.entity.Score;
-import game.service.*;
+import game.service.CommentService;
+import game.service.RatingService;
+import game.service.ScoreService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 import java.util.List;
@@ -16,20 +19,34 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ConsoleUI {
-    public static final String GAME_NAME = "breakinkbricks";
+    public static final String GAME_NAME = "breakingbricks";
     private static final Pattern INPUT_PATTERN = Pattern.compile("([A-I,X])([1-9])");
     private static final Pattern NAME_PATTERN = Pattern.compile("([A-Za-z]{3,10})");
     private static final Pattern RATING_PATTERN = Pattern.compile("([1-5])");
     private static final Pattern YN_PATTERN = Pattern.compile("([Yy,Nn])");
     private final Field field;
     private final Scanner scanner = new Scanner(System.in);
-    private final ScoreService scoreService = new ScoreServiceJDBC();
-    private final CommentService commentService = new CommentServiceJDBC();
-    private final RatingService ratingService = new RatingServiceJDBC();
+
     private final int health;
     private String name;
     private String comment;
     private int rate = 0;
+
+    @Autowired
+    private ScoreService scoreService;
+    @Autowired
+    private CommentService commentService;
+    @Autowired
+    private RatingService ratingService;
+
+    public ConsoleUI(Field field, int health, ScoreService scoreService, CommentService commentService, RatingService ratingService) {
+        this.field = field;
+        this.health = health;
+        this.scoreService = scoreService;
+        this.commentService = commentService;
+        this.ratingService = ratingService;
+    }
+
 
     public ConsoleUI(Field field) {
         this.field = field;
@@ -54,6 +71,7 @@ public class ConsoleUI {
         printField();
         printAVGrating();
         processRating();
+
         printTopComments();
         processComment();
         processPlayOver();

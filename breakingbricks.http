@@ -1,0 +1,9 @@
+###
+GET http://localhost:8080/api/score/breakingbricks
+Accept: application/json
+###
+GET http://localhost:8080/api/rating/AVG/breakingbricks
+Accept: application/json
+###
+GET http://localhost:8080/api/comment/breakingbricks
+Accept: application/json

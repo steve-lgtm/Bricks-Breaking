@@ -1,18 +1,38 @@
 package game.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Rating {
+    @Id
+    @GeneratedValue
+    private int ident;
+
     private String game;
     private String player;
     private int rating;
     private Date ratedOn;
+
+    public Rating() {
+
+    }
 
     public Rating(String game, String player, int rating, Date ratedOn) {
         this.game = game;
         this.player = player;
         this.rating = rating;
         this.ratedOn = ratedOn;
+    }
+
+    public int getIdent() {
+        return ident;
+    }
+
+    public void setIdent(int ident) {
+        this.ident = ident;
     }
 
     public String getGame() {
@@ -50,6 +70,7 @@ public class Rating {
     @Override
     public String toString() {
         return "Rating{" +
+                "ident=" + ident +
                 "game='" + game + '\'' +
                 ", player='" + player + '\'' +
                 ", rating=" + rating +
