@@ -14,7 +14,7 @@ public class RatingServiceJPA implements RatingService {
 
     @Override
     public void setRating(Rating rating) {
-        entityManager.persist(rating);
+        entityManager.merge(rating);
     }
 
     @Override
