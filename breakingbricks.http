@@ -1,4 +1,34 @@
 ###
+POST http://localhost:8080/api/comment
+Content-Type: application/json
+
+{
+  "game": "breakingbricks",
+  "player": "stefan",
+  "comment": "fgnbdhfh",
+  "commentedOn": "2021-06-02T09:42:43.396+00:00"
+}
+###
+POST http://localhost:8080/api/rating
+Content-Type: application/json
+
+{
+  "game": "breakingbricks",
+  "player": "gigi",
+  "rating": "1",
+  "ratedOn": "2021-06-02T09:42:43.396+00:00"
+}
+###
+POST http://localhost:8080/api/score
+Content-Type: application/json
+
+{
+"game": "breakingbricks",
+"player": "fff",
+"points": "1000",
+"playedOn": "2021-06-02T09:42:43.396+00:00"
+}
+###
 GET http://localhost:8080/api/score/breakingbricks
 Accept: application/json
 ###

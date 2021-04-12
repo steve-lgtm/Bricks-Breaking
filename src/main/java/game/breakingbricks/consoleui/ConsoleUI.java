@@ -55,6 +55,7 @@ public class ConsoleUI {
 
     public void play() {
         processName();
+
         System.out.println("----------------------------");
         printTopScores();
 
@@ -71,7 +72,6 @@ public class ConsoleUI {
         printField();
         printAVGrating();
         processRating();
-
         printTopComments();
         processComment();
         processPlayOver();

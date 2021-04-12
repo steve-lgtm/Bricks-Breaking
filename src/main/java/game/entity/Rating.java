@@ -1,17 +1,15 @@
 package game.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
-
 @Entity
-public class Rating {
-    @Id
-    @GeneratedValue
-    private int ident;
+@IdClass(RatingId.class)
+public class Rating implements Serializable {
 
+    @Id
     private String game;
+    @Id
     private String player;
     private int rating;
     private Date ratedOn;
@@ -27,13 +25,6 @@ public class Rating {
         this.ratedOn = ratedOn;
     }
 
-    public int getIdent() {
-        return ident;
-    }
-
-    public void setIdent(int ident) {
-        this.ident = ident;
-    }
 
     public String getGame() {
         return game;
@@ -70,7 +61,6 @@ public class Rating {
     @Override
     public String toString() {
         return "Rating{" +
-                "ident=" + ident +
                 "game='" + game + '\'' +
                 ", player='" + player + '\'' +
                 ", rating=" + rating +
