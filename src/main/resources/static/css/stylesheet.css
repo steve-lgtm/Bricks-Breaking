@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-size: 1.5rem;
+    background-color: #000000;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+color: aliceblue;
+    text-align: center;
+
+}
+h1,h2{
+    font-size: 2rem;
+    margin:1em;
+}
+#comentarik{
+    margin: 1em;
+}
+h3{
+    font-size: 1rem;
+}
+.flex-grid {
+
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+
+
+
+}
+.flex-grid .col {
+    flex: 1;
+}
+.flex-grid .col1 {
+
+    flex: 1;
+
+}
+th,td,tr {
+
+
+    margin:-2em;
+    padding: 0;
+
+}
+
+tbody{
+    margin:0;
+    padding: 0;
+}
+a{
+width: 1em;
+    text-decoration: none;
+    margin-top: -1em;
+    padding: 0;
+}
+ol {
+    padding-left: 0;
+    list-style-position: inside;
+}
+#serverSideScoreTable{
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border:0.5em solid white;
+    padding: 1em;
+}
+
+#serverSideScoreTable th {
+    padding-bottom: 0.8em;
+    padding-left: 0.8em;
+    font-size: 1.5rem;
+}
+#tablicka{
+    font-size: 0.2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border:3em solid white;
+}
+h4{
+   margin-bottom: -0.0001em;
+}
+#tlacitko {
+    margin-top:2em;
+}
+#pozor{
+    margin-top:3em;
+}
