@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+          href="/css/stylesheet.css"
+          media="screen"/>
+    <meta charset="UTF-8">
+    <title>Gamestudio</title>
+
+</head>
+<body>
+<div class="flex-grid">
+    <div class="col">
+<h1>Breaking bricks</h1>
+
+<span th:utext="${@breakingbricksController.htmlField}"/>
+
+        <h2><a href="/breakingbricks/new">New Game</a> | <a href='/'>HOME</a><br/></h2>
+
+        <span th:if="${@userController.logged}">
+
+            Average rating: <span th:utext="${@ratingService.getAverageRating('breakingbricks')}"/>
+
+
+
+      <h4> Enter rating:</h4>
+      <span th:utext="${@breakingbricksController.starsRating}"/>
+        </span>
+    </div>
+    <div class="col1">
+<span th:utext="${@breakingbricksController.gameOver}"/>
+        <h2 th:if="${@breakingbricksController.over}">Scores</h2>
+        <table id="serverSideScoreTable" th:if="${@breakingbricksController.over}">
+            <thead>
+            <tr>
+                <th>Player</th>
+                <th>Points</th>
+                <th>Played on</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="score: ${scores}">
+                <td th:text="${score.player}"></td>
+                <td th:text="${score.points}"></td>
+                <td th:text="${score.playedOn}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <span th:if="${@userController.logged}">
+        <h2 >Comments</h2>
+        <table id="serverSideScoreTable" >
+            <thead>
+            <tr>
+                <th>Player</th>
+                <th>Comment</th>
+                <th>Commented on</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="comment: ${comments}">
+                <td th:text="${comment.player}"></td>
+                <td th:text="${comment.comment}"></td>
+                <td th:text="${comment.commentedOn}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <form action="/breakingbricks/comment" method="post" id="comentarik">
+            Enter comment: <input type="text" name="comment"/><br/>
+            <input type="submit" id="tlacitko"/>
+        </form>
+        </span>
+
+
+    </div>
+</div>
+</body>
+</html>

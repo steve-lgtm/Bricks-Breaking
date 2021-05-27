@@ -26,7 +26,7 @@ public class RatingServiceJPA implements RatingService {
 
     @Override
     public int getRating(String game, String player) {
-        return ((Number) entityManager.createQuery("select s from Rating s where s.game = :game and s.player = :player order by s.rating DESC")
+        return ((Number) entityManager.createQuery("SELECT rating FROM Rating WHERE game =: game AND player=: player order by rating")
                 .setParameter("game", game).setParameter("player", player).getSingleResult()).intValue();
     }
 

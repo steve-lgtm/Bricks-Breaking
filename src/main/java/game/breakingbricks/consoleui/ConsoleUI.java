@@ -90,7 +90,7 @@ public class ConsoleUI {
                 if (tile.getState() == TileState.COLORED) {
                     switch (tile.getColor()) {
                         case YELLOW -> System.out.print("Y");
-                        case ORANGE -> System.out.print("O");
+                        case BLUE -> System.out.print("B");
                         case RED -> System.out.print("R");
                         default -> throw new IllegalArgumentException("Incorrect. tile state");
                     }

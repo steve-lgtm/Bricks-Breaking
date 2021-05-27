@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="userController" type="sk.tuke.gamestudio.server.controller.UserController"*/-->
+
+<div th:fragment="header">
+    <h1>Welcome to <a href="/">Breaking bricks</a></h1>
+    <span th:if="${@userController.logged}">
+        Logged as: <span th:text="${@userController.loggedUser.login}"/>
+        <a href="/logout">Logout</a><br/>
+    </span>
+
+    <span th:if="not ${@userController.logged}">
+        Not logged. Please
+        <a href="/">login or register</a>. Without login you can't add score, comment or rating!<br/>
+    </span>
+
+</div>
+<div th:fragment="footer">
+
+    <h2><a href="/breakingbricks">Play without login</a></h2>
+</div>
+
+
+
+</html>
